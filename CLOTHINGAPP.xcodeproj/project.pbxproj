@@ -14,6 +14,10 @@
 		885F505D2BB08CE6008DB079 /* CLOTHINGAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F505C2BB08CE6008DB079 /* CLOTHINGAPPTests.swift */; };
 		885F50672BB08CE6008DB079 /* CLOTHINGAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F50662BB08CE6008DB079 /* CLOTHINGAPPUITests.swift */; };
 		885F50692BB08CE6008DB079 /* CLOTHINGAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F50682BB08CE6008DB079 /* CLOTHINGAPPUITestsLaunchTests.swift */; };
+		88C810D42BB480E4006FDF4B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C810D32BB480E3006FDF4B /* LoginView.swift */; };
+		88C810D62BB491CD006FDF4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C810D52BB491CD006FDF4B /* HomeView.swift */; };
+		88C810D82BB492E0006FDF4B /* ShopByCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C810D72BB492DF006FDF4B /* ShopByCategory.swift */; };
+		88C810DE2BB56972006FDF4B /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C810DD2BB56971006FDF4B /* NewUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		885F50622BB08CE6008DB079 /* CLOTHINGAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLOTHINGAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		885F50662BB08CE6008DB079 /* CLOTHINGAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLOTHINGAPPUITests.swift; sourceTree = "<group>"; };
 		885F50682BB08CE6008DB079 /* CLOTHINGAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLOTHINGAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		88C810D32BB480E3006FDF4B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		88C810D52BB491CD006FDF4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		88C810D72BB492DF006FDF4B /* ShopByCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopByCategory.swift; sourceTree = "<group>"; };
+		88C810DD2BB56971006FDF4B /* NewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,10 @@
 		885F50782BB09061008DB079 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88C810D32BB480E3006FDF4B /* LoginView.swift */,
+				88C810D52BB491CD006FDF4B /* HomeView.swift */,
+				88C810D72BB492DF006FDF4B /* ShopByCategory.swift */,
+				88C810DD2BB56971006FDF4B /* NewUserView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				885F504E2BB08CE1008DB079 /* ContentView.swift in Sources */,
+				88C810D62BB491CD006FDF4B /* HomeView.swift in Sources */,
+				88C810D42BB480E4006FDF4B /* LoginView.swift in Sources */,
+				88C810D82BB492E0006FDF4B /* ShopByCategory.swift in Sources */,
+				88C810DE2BB56972006FDF4B /* NewUserView.swift in Sources */,
 				885F504C2BB08CE1008DB079 /* CLOTHINGAPPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

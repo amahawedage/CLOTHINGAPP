@@ -13,18 +13,13 @@ struct CategoryView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "line.horizontal.3")
-                    .foregroundColor(.gray)
-                    .imageScale(.large)
-                Spacer()
+                
                 Image(systemName: "logo.dressmart") // Replace with your logo image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 30)
                 Spacer()
-                Text("DressSmart")
-                    .font(.title)
-                    .fontWeight(.bold)
+              
             }
             .padding()
             
@@ -57,7 +52,7 @@ enum Category: String, CaseIterable {
     
     var imageName: String {
         switch self {
-            case .women: return "category.women"
+            case .women: return "Woman"
             case .men: return "category.men"
             // Add the rest of your images names here
             default: return "placeholder.image"

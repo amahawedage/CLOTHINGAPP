@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187334F82BB949FE00B9AF71 /* loginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187334F72BB949FE00B9AF71 /* loginViewModel.swift */; };
+		187334FA2BB94BD700B9AF71 /* ShopbyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187334F92BB94BD700B9AF71 /* ShopbyCategory.swift */; };
+		187334FC2BB953DD00B9AF71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187334FB2BB953DD00B9AF71 /* User.swift */; };
+		187334FE2BB976F000B9AF71 /* DisplayItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187334FD2BB976F000B9AF71 /* DisplayItems.swift */; };
+		18BE252D2BB8992700A87668 /* network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE252C2BB8992700A87668 /* network.swift */; };
 		885F504C2BB08CE1008DB079 /* CLOTHINGAPPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F504B2BB08CE1008DB079 /* CLOTHINGAPPApp.swift */; };
 		885F504E2BB08CE1008DB079 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F504D2BB08CE1008DB079 /* ContentView.swift */; };
 		885F50502BB08CE5008DB079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 885F504F2BB08CE5008DB079 /* Assets.xcassets */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		187334F72BB949FE00B9AF71 /* loginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = loginViewModel.swift; path = CLOTHINGAPP/Network/loginViewModel.swift; sourceTree = SOURCE_ROOT; };
+		187334F92BB94BD700B9AF71 /* ShopbyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShopbyCategory.swift; path = CLOTHINGAPP/Network/ShopbyCategory.swift; sourceTree = SOURCE_ROOT; };
+		187334FB2BB953DD00B9AF71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = CLOTHINGAPP/Network/User.swift; sourceTree = SOURCE_ROOT; };
+		187334FD2BB976F000B9AF71 /* DisplayItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayItems.swift; sourceTree = "<group>"; };
+		18BE252C2BB8992700A87668 /* network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = network.swift; sourceTree = "<group>"; };
 		885F50482BB08CE0008DB079 /* CLOTHINGAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLOTHINGAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		885F504B2BB08CE1008DB079 /* CLOTHINGAPPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLOTHINGAPPApp.swift; sourceTree = "<group>"; };
 		885F504D2BB08CE1008DB079 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18BE252B2BB86E8C00A87668 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				18BE252C2BB8992700A87668 /* network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		885F503F2BB08CE0008DB079 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +120,7 @@
 		885F504A2BB08CE0008DB079 /* CLOTHINGAPP */ = {
 			isa = PBXGroup;
 			children = (
+				18BE252B2BB86E8C00A87668 /* Network */,
 				885F50792BB09071008DB079 /* ViewModel */,
 				885F50782BB09061008DB079 /* View */,
 				885F50772BB09047008DB079 /* Model */,
@@ -141,6 +160,7 @@
 		885F50772BB09047008DB079 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				187334FB2BB953DD00B9AF71 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +172,7 @@
 				88C810D52BB491CD006FDF4B /* HomeView.swift */,
 				88C810D72BB492DF006FDF4B /* ShopByCategory.swift */,
 				88C810DD2BB56971006FDF4B /* NewUserView.swift */,
+				187334FD2BB976F000B9AF71 /* DisplayItems.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +180,8 @@
 		885F50792BB09071008DB079 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				187334F72BB949FE00B9AF71 /* loginViewModel.swift */,
+				187334F92BB94BD700B9AF71 /* ShopbyCategory.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,11 +317,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				885F504E2BB08CE1008DB079 /* ContentView.swift in Sources */,
+				187334FE2BB976F000B9AF71 /* DisplayItems.swift in Sources */,
+				187334FA2BB94BD700B9AF71 /* ShopbyCategory.swift in Sources */,
 				88C810D62BB491CD006FDF4B /* HomeView.swift in Sources */,
+				18BE252D2BB8992700A87668 /* network.swift in Sources */,
 				88C810D42BB480E4006FDF4B /* LoginView.swift in Sources */,
 				88C810D82BB492E0006FDF4B /* ShopByCategory.swift in Sources */,
 				88C810DE2BB56972006FDF4B /* NewUserView.swift in Sources */,
 				885F504C2BB08CE1008DB079 /* CLOTHINGAPPApp.swift in Sources */,
+				187334FC2BB953DD00B9AF71 /* User.swift in Sources */,
+				187334F82BB949FE00B9AF71 /* loginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

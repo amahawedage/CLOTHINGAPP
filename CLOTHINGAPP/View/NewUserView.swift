@@ -9,9 +9,15 @@ import Foundation
 
 import SwiftUI
 struct NewUserView: View {
-    @State private var username: String = ""
+    @State private var name: String = ""
+    @State private var email: String = ""
+    @State private var mobile: String = ""
+    @State private var address1: String = ""
+    @State private var address2: String = ""
+    @State private var city: String = ""
+    @State private var country: String = ""
     @State private var password: String = ""
-
+    @State private var gotoRegUserConfView = false
     var body: some View {
         VStack {
             Image("DressSmartLogo").padding()
@@ -21,7 +27,7 @@ struct NewUserView: View {
                 .fontWeight(.semibold)
                 .padding()
             
-            TextField("Name", text: $username)
+            TextField("Name", text: $name)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
@@ -31,7 +37,7 @@ struct NewUserView: View {
             
            
 
-            TextField("Email Adddress", text: $username)
+            TextField("Email Adddress", text: $email)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
@@ -39,7 +45,7 @@ struct NewUserView: View {
                 .stroke(Color.teal))
                 .frame(width: 170)
             
-            TextField("Mobile Number", text: $username)
+            TextField("Mobile Number", text: $mobile)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
@@ -47,7 +53,7 @@ struct NewUserView: View {
                 .stroke(Color.teal))
                 .frame(width: 170)
             
-            TextField("Address 1", text: $username)
+            TextField("Address 1", text: $address1)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
@@ -55,7 +61,7 @@ struct NewUserView: View {
                 .stroke(Color.teal))
                 .frame(width: 170)
             
-            TextField("Address 2", text: $username)
+            TextField("Address 2", text: $address2)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
@@ -63,7 +69,7 @@ struct NewUserView: View {
                 .stroke(Color.teal))
                 .frame(width: 170)
             
-            TextField("City", text: $username)
+            TextField("City", text: $city)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
@@ -71,14 +77,14 @@ struct NewUserView: View {
                 .stroke(Color.teal))
                 .frame(width: 170)
             
-            TextField("Country", text: $username)
+            /*TextField("Country", text: $country)
                 
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(4)
                 .overlay(RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.teal))
                 .frame(width: 170)
-            
+            */
             
             SecureField("Password", text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -88,7 +94,8 @@ struct NewUserView: View {
                 .frame(width: 170)
             Button(action: {
                 // Implement login logic here
-                username = "smart user"
+                //username = "smart user"
+                gotoRegUserConfView = true
             }) {
                 Text("Register")
                     .foregroundColor(.white)
@@ -103,6 +110,10 @@ struct NewUserView: View {
         }
         .padding()
         .padding()
+        
+        .fullScreenCover(isPresented: $gotoRegUserConfView){
+           RegConf()
+        }
     }
     
 }

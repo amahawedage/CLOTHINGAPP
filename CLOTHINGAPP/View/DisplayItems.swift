@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 // Define a model for the skirt items
+
 struct SkirtItem: Identifiable {
     var id = UUID()
     var name: String
@@ -21,10 +22,11 @@ struct SkirtItemView: View {
     var skirt: SkirtItem
     @State private var selectedSize: String = "S"
     @State private var quantity: Int = 1
-    
+    @State private var gotoCart = false
+    //var data: String
     var body: some View {
         VStack {
-           
+           // Text("The data is: (data)")
             Image(skirt.imageName)
                 //.resizable()
                 //.aspectRatio(contentMode: .fit)
@@ -59,6 +61,8 @@ struct SkirtItemView: View {
             // Add to cart button
             Button(action: {
                 // Handle add to cart action
+                gotoCart = true
+                
             }) {
                 Text("Add to Cart")
                     .foregroundColor(.white)
@@ -71,7 +75,13 @@ struct SkirtItemView: View {
         .background(Color.white)
         .cornerRadius(15)
         .shadow(radius: 3)
+        
+        .fullScreenCover(isPresented: $gotoCart){
+             ViewCart()
+        }
     }
+    
+    
 }
 
 // Define the main view that displays the skirt items
@@ -79,8 +89,8 @@ struct DisplayItems: View {
     let skirts = [
         SkirtItem(name: "Silk Skirt", price: 1000, imageName: "SK1"),
         SkirtItem(name: "Silk Fleet Skirt", price: 1500, imageName: "SK2"),
-        SkirtItem(name: "Aline Skirt", price: 2100, imageName: "alineSkirt"),
-        SkirtItem(name: "Skateboard Skirt", price: 1100, imageName: "skateboardSkirt")
+        SkirtItem(name: "Aline Skirt", price: 2100, imageName: "SK3"),
+        SkirtItem(name: "Skateboard Skirt", price: 1100, imageName: "SK4")
     ]
     
     var body: some View {

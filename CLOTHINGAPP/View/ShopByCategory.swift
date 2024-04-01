@@ -9,32 +9,35 @@ import Foundation
 
 import SwiftUI
 
-struct CategoryView: View {
+struct ShopByCategory: View {
     var body: some View {
-        VStack {
-            HStack {
-                
-                Image(systemName: "logo.dressmart") // Replace with your logo image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 30)
-                Spacer()
-              
-            }
-            .padding()
-            
-            Text("Shop by Category")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .padding()
-
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(Category.allCases, id: \.self) { category in
-                        CategoryRow(category: category)
+        NavigationView {
+            VStack(alignment:.center, spacing: 0) {
+                HStack {
+                    
+                    // DressSmart Logo
+                    HStack
+                    {
+                        Image("DressSmartLogo")
+                        
                     }
+                    
                 }
-                .padding()
+                //.padding()
+                
+                Text("Shop by Category")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding()
+                
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(Category.allCases, id: \.self) { category in
+                            CategoryRow(category: category)
+                        }
+                    }
+                    .padding()
+                }
             }
         }
     }
@@ -53,7 +56,13 @@ enum Category: String, CaseIterable {
     var imageName: String {
         switch self {
             case .women: return "Woman"
-            case .men: return "category.men"
+            case .men: return "Men"
+            case .sports: return "Sports"
+            case .kids: return "Kids"
+            case .baby: return "Baby"
+            case .beauty: return "Beauty"
+            case .home: return "Home"
+            case .offers: return "Offers"
             // Add the rest of your images names here
             default: return "placeholder.image"
         }
@@ -68,12 +77,24 @@ struct CategoryRow: View {
             Image(category.imageName) // Replace with your actual image names
                 .resizable()
                 .scaledToFill()
-                .frame(width: 60, height: 60)
+                .frame(width: 150, height: 60)
                 .clipped()
                 .cornerRadius(5)
             Text(category.rawValue)
                 .fontWeight(.medium)
             Spacer()
+            
+            //
+            NavigationLink(destination: DisplayItems()) {
+            
+                Text("Shop")
+                    .frame(width:114, height:70, alignment:.center)
+                    .foregroundColor(Color.white)
+                    .background(Color.gray)
+                    .fontWeight(.bold)
+                    
+            }
+            //
         }
         .frame(height: 60)
         .background(Color.white)
@@ -84,6 +105,6 @@ struct CategoryRow: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        ShopByCategory()
     }
 }

@@ -15,7 +15,8 @@ struct LoginView: View {
     @StateObject private var userControler=LoginViewModel()
     @State private var gotoHomePage = false
     @State private var showAlert = false
-    @State private var isLoginSuccessfull = false
+    //@State private var isLoginSuccessfull = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -30,28 +31,32 @@ struct LoginView: View {
                     .frame(width: 170)
                 
                 SecureField("Password", text: $password)
+                //TextField("Password", text:  $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(4)
                     .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(Color.teal))
                     .frame(width: 170)
-                Button(action: {
+                Button(
+                    action: {
                     // Implement login logic here
                     //self.flag.toggle()
-                    isLoginSuccessfull = true // make this variable value dynamic based on the authentication from the backend API for user login
-                    userControler.loginUser(username: emailaddress, password: password)
-                    //if (userControler.isLoginSuccessful){
-                    if (isLoginSuccessfull){
-                        showAlert = false
-                        gotoHomePage = true
+                    //isLoginSuccessfull = false // make this variable value dynamic based on the authentication from the backend API for user login
+                        userControler.loginUser(username: emailaddress, password: password){
+                            (result:Result<LoginResponse,Error>) in
+                            switch result {
+                            case .success(let loginResponse):
+                                guard let username = Optional(loginResponse.username) else {return}
+                                gotoHomePage = true
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                                showAlert = true
+                            }
+                            
+                        }
                     }
-                    else {
-                        showAlert = true
-                    }
-                    
-                }
-                       
                 )
+                
                 {
                     Text("Login")
                         .foregroundColor(.white)
@@ -84,7 +89,7 @@ struct LoginView: View {
                 
                 // Link to Reset Password form to reset password
                 NavigationLink(destination: ResetPassword()){
-                    Text("Fogot Passroword ?")
+                    Text("Forgot Password ?")
                         .font(.system(size: 16, weight: .semibold))
                         .frame(maxWidth: .infinity, minHeight: 52)
                         .underline(true)
@@ -111,11 +116,11 @@ struct LoginView: View {
         }
     }
     
-   // struct HomeView: View {
-   //     var body: some View {
-   //         Text("Home Page")
-   //     }
-   // }
+    // struct HomeView: View {
+    //     var body: some View {
+    //         Text("Home Page")
+    //     }
+    // }
 }
 
 

@@ -15,6 +15,7 @@ struct SkirtItem: Identifiable {
     var name: String
     var price: Int
     var imageName: String
+   
 }
 
 // Define a view for each skirt item
@@ -86,13 +87,14 @@ struct SkirtItemView: View {
 
 // Define the main view that displays the skirt items
 struct DisplayItems: View {
+    //var data: String
     let skirts = [
         SkirtItem(name: "Silk Skirt", price: 1000, imageName: "SK1"),
         SkirtItem(name: "Silk Fleet Skirt", price: 1500, imageName: "SK2"),
         SkirtItem(name: "Aline Skirt", price: 2100, imageName: "SK3"),
         SkirtItem(name: "Skateboard Skirt", price: 1100, imageName: "SK4")
     ]
-    
+   
     var body: some View {
         ScrollView {
             VStack {Image("DressSmartLogo")

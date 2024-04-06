@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+//added
+enum ServerError:Error{
+    case custom (message:String)
+}
 class LoginViewModel: ObservableObject {
 
     @Published var user: User?
@@ -16,10 +19,11 @@ class LoginViewModel: ObservableObject {
     @Published var alertMessage: String = ""
     @Published var isLoginSuccessful: Bool = false
     
-    func loginUser(username:String,password:String) {
+    func loginUser(username:String,password:String,completion:@escaping (Result<LoginResponse,Error>)->Void) {
         guard let url = URL(string: "http://localhost:3000/user/login") else {
             self.alertMessage = "Invalid URL"
             self.showingAlert = true
+            completion(.failure(ServerError.custom(message:"Invalid URL")))
             return
         }
 
@@ -41,6 +45,8 @@ class LoginViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self?.alertMessage = "Login error: \(error.localizedDescription)"
                         self?.showingAlert = true
+                        //self?.isLoginSuccessful=false
+                        completion(.failure(ServerError.custom(message:"Login error: \(error.localizedDescription)")))
                     }
                     return
                 }
@@ -49,26 +55,34 @@ class LoginViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self?.alertMessage = "No data received"
                         self?.showingAlert = true
+                        //self?.isLoginSuccessful=false
+                        completion(.failure(ServerError.custom(message:"No data received")))
                     }
                     return
                 }
-                
+               
                 do {
                     let decoder = JSONDecoder()
                     let result = try decoder.decode(LoginResponse.self, from: data)
-                    /*commented by AP
-                     DispatchQueue.main.async {
-                        self?.user = result.user
-                        self?.isLoginSuccessful = true // Login successful
-                    }*/
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self?.isLoginSuccessful = true
-                    }
                     
+                    DispatchQueue.main.async {
+                        if let user = Optional(result.username ){
+                            self?.user?.username = username
+                            self?.isLoginSuccessful = true // Login successful
+                            completion(.success(result))
+                        } else {
+                            // Unexpected response format
+                            self?.alertMessage = "Unexpected response format"
+                            self?.showingAlert = true
+                            completion(.failure(ServerError.custom(message:"Unexpected response format")))
+                        }
+                    }
                 } catch {
+                    print(error)
                     DispatchQueue.main.async {
                         self?.alertMessage = "Error decoding JSON: \(error)"
                         self?.showingAlert = true
+                        completion(.failure(ServerError.custom(message:"Error decoding JSON: \(error)")))
                     }
                 }
             }.resume()
@@ -76,12 +90,21 @@ class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.alertMessage = "Error serializing JSON: \(error)"
                 self.showingAlert = true
+               
             }
         }
     }
 }
 
 
+// MARK: - LoginResponse
 struct LoginResponse: Codable {
-    let user: User
+    let id, username, password, email: String
+    let v: Int
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case username, password, email
+        case v = "__v"
+    }
 }

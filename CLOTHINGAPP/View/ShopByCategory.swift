@@ -85,8 +85,8 @@ struct CategoryRow: View {
             Spacer()
             
             //
-            NavigationLink(destination: DisplayItems()) {
-            
+            //NavigationLink(destination: ProductListView()) {
+            NavigationLink(destination: OrderConf()){ // Changed to by pass the ProductListView since it has parameter
                 Text("Shop")
                     .frame(width:114, height:70, alignment:.center)
                     .foregroundColor(Color.white)

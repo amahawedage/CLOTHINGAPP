@@ -27,7 +27,7 @@ struct HomeView: View {
                         
                         // Navigate to Shop by category view
                         //NavigationLink(destination: DestinationView(data: "View Items by Category !")) {
-                        NavigationLink(destination: ShopByCategory()) {
+                        NavigationLink(destination: CategoryMView()) {
                         
                             Text(" Shop By Category ")
                                 .frame(width:294, height:70, alignment:.center)

@@ -6,12 +6,19 @@
 //
 
 import Foundation
-/*class ProductViewModel: ObservableObject {
+class ProductViewModel: ObservableObject {
     @Published var products: [Product] = []
-
+    private let category_Code: String // A Parameter to get the Category Code Pass from the CategoryMView
+    
+    init(categoryCode: String) {
+            self.category_Code = categoryCode
+    }
+    
     func fetchProducts() {
-        // Cloth API
-        let url = URL(string: "http://localhost:3000/products")!
+        
+        // calling Cloth API to fetch product detail
+        //let url = URL(string: "http://localhost:3000/products")!
+        let url = URL(string: "http://localhost:3000/productbycat/\(category_Code)")!
 
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
@@ -24,4 +31,4 @@ import Foundation
             }
         }.resume()
     }
-}*/
+}

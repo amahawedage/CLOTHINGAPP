@@ -99,7 +99,7 @@ struct ViewCart: View {
         
         // Navigate the page to Shop By Category
         .fullScreenCover(isPresented: $gotoContinueShopping){
-            ShopByCategory()
+            CategoryMView()
         }
     }
 }

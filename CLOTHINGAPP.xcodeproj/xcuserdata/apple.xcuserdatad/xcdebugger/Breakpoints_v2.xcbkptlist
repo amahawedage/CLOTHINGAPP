@@ -66,6 +66,36 @@
             endingLineNumber = "69"
             landmarkName = "loginUser(username:password:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5D68BFA0-ECC0-41E2-A16F-F2FEAD2EBF25 - 3daea4b9cc9e079f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CLOTHINGAPP.LoginViewModel.loginUser(username: Swift.String, password: Swift.String, completion: (Swift.Result&lt;CLOTHINGAPP.LoginResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CLOTHINGAPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/GitHub/CLOTHINGAPP/CLOTHINGAPP/Network/loginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69">
+               </Location>
+               <Location
+                  uuid = "5D68BFA0-ECC0-41E2-A16F-F2FEAD2EBF25 - 3daea4b9cc9e079f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CLOTHINGAPP.LoginViewModel.loginUser(username: Swift.String, password: Swift.String, completion: (Swift.Result&lt;CLOTHINGAPP.LoginResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CLOTHINGAPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/GitHub/CLOTHINGAPP/CLOTHINGAPP/Network/loginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,6 +128,22 @@
             endingLineNumber = "66"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B33D8B6-7521-4A59-B1CF-A4457E76C287"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLOTHINGAPP/View/ProductViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "init(categoryCode:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -11,11 +11,13 @@ class CartViewModel: ObservableObject {
     
     // Add item to the cart
     func addItem(name: String, price: Double, quantity: Int = 1) {
-        if let index = cartItems.firstIndex(where: { $0.name == name }) {
+        /*if let index = cartItems.firstIndex(where: { $0.name == name }) {
             cartItems[index].quantity += quantity
         } else {
             cartItems.append(CartItem(name: name, price: price, quantity: quantity))
-        }
+        }*/
+        //print("test cart")
+        self.cartItems.append(CartItem(name: name, price: price, quantity: quantity))
     }
     
     // Remove item from the cart

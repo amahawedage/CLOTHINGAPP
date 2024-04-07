@@ -8,13 +8,18 @@ import Foundation
 import SwiftUI
 // View for displaying the shopping cart
 struct CartView: View {
-    @ObservedObject var viewModel: CartViewModel
-    
+    //@StateObject var viewModel: CartViewModel
+    @ObservedObject var cartViewModel: CartViewModel
+    @State private var gotoCheckoutView = false
+    @State private var gotoContinueShopping = false
     var body: some View {
-        NavigationView {
+        //NavigationView
+        //{
+        Text("Shopping Cart") .fontWeight(.semibold)
+            .padding()
             VStack {
                 List {
-                    ForEach(viewModel.cartItems) { item in
+                    ForEach(cartViewModel.cartItems) { item in
                         HStack {
                             Text(item.name)
                             Spacer()
@@ -26,40 +31,83 @@ struct CartView: View {
                 
                 HStack {
                     Spacer()
-                    Text("Total: Rs.\(viewModel.calculateTotal())")
+                    Text("Total: Rs.\(cartViewModel.calculateTotal())")
                         .padding()
                     Spacer()
                 }
                 
-                HStack {
-                    Spacer()
-                    Button(action: checkout) {
-                        Text("Checkout")
-                            .foregroundColor(.white)
+           
+                
+                
+                /*NavigationView
+                {
+                    HStack
+                    {
+                        Spacer()
+                        NavigationLink(destination: CheckoutView()) {
+                            Button(action: checkout) {
+                                Text("Checkout")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
                             .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
-                    .padding()
-                    
-                    Button(action: continueShopping) {
-                        Text("Continue Shopping")
-                            .foregroundColor(.white)
+                        }
+                        NavigationLink(destination: CategoryMView(cartViewModel:cartViewModel)) {
+                            Button(action: continueShopping) {
+                                Text("Continue Shopping")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.green)
+                                    .cornerRadius(10)
+                            }
                             .padding()
-                            .background(Color.green)
-                            .cornerRadius(10)
+                            Spacer()
+                        }
                     }
-                    .padding()
-                    Spacer()
+                }*/
+                
+                
+                // Checkout and continue shopping buttons
+                Button(" Checkout ") {
+                    // Handle checkout action
+                    gotoCheckoutView = true
                 }
-            }
-            .navigationBarTitle("Shopping Cart")
+                .padding()
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                
+                
+                Button("Continue Shopping") {
+                    // Handle continue shopping action
+                   gotoContinueShopping = true
+                }
+                .padding()
+                .background(Color.yellow)
+                .foregroundColor(.black)
+                .cornerRadius(10)
+                
+                // Navifgate the page to Checkout
+                .fullScreenCover(isPresented: $gotoCheckoutView){
+                    CheckoutView()
+                }
+                
+                // Navigate the page to Shop By Category
+                .fullScreenCover(isPresented: $gotoContinueShopping){
+                    //CategoryMView()
+                    CategoryMView(cartViewModel:cartViewModel)
+                     
+                }
+            //}
+            //.navigationBarTitle("Shopping Cart")
         }
     }
     
     // delete item from the cart
     private func deleteItem(at offsets: IndexSet) {
-        viewModel.removeItem(at: offsets.first ?? 0)
+        cartViewModel.removeItem(at: offsets.first ?? 0)
     }
     
     // navigate to checkout action
@@ -69,14 +117,15 @@ struct CartView: View {
     
     // Navigate to continue shopping action
     private func continueShopping() {
-        CategoryMView()
+        CategoryMView(cartViewModel: cartViewModel)
+        
     }
 }
 
 // SwiftUI previews
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(viewModel: CartViewModel())
+        CartView(cartViewModel: CartViewModel())
     }
 }
 

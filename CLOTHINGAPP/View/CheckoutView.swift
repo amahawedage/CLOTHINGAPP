@@ -38,7 +38,7 @@ struct CheckoutView: View {
                 TextField("Email Address", text: $emailAddress)
                 TextField("Delivery Address 1", text: $deliveryAddress1)
                 TextField("Delivery Address 2", text: $deliveryAddress2)
-                TextField("City", text: $deliveryAddress2)
+                TextField("City", text: $city)
                 
             }
 

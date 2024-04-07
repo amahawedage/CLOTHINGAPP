@@ -10,12 +10,15 @@ import SwiftUI
 struct ProductListView: View {
     
     //commented the below by AP
-    @ObservedObject private var viewModel: ProductViewModel
+    @ObservedObject private var viewModel: ProductViewModel;
+    @ObservedObject var cartViewModel:CartViewModel;
+    
     let categoryCode: String
     
-    init(categoryCode: String) {
+    init(categoryCode: String,cartViewModel:CartViewModel) {
         self.categoryCode = categoryCode
         self.viewModel = ProductViewModel(categoryCode: categoryCode)
+        self.cartViewModel = cartViewModel
     }
     
     var body: some View
@@ -24,10 +27,11 @@ struct ProductListView: View {
         
         NavigationView {
             List(viewModel.products) { product in
-                ProductCell(product: product)
+                ProductCell(product: product,cartViewModel: cartViewModel)
             }
-            //.navigationBarTitle("Products")
-            .navigationBarTitle("Product: \(categoryCode)")
+            .navigationBarTitle("Products")
+            //.navigationBarTitle("Product: \(categoryCode)")
+            
             .onAppear {
                 viewModel.fetchProducts()
             }
@@ -37,7 +41,7 @@ struct ProductListView: View {
         
     struct ProductCell: View {
         let product: Product
-        
+        let cartViewModel:CartViewModel
         @State private var gotoCart = false
         var body: some View {
             HStack
@@ -66,7 +70,9 @@ struct ProductListView: View {
                         // Add to cart button
                         Button(action: {
                             // Handle add to cart action
+                            cartViewModel.addItem(name: product.name, price: Double(product.price),quantity:1)
                             gotoCart = true
+                            
              
                             
                         }) {
@@ -80,7 +86,7 @@ struct ProductListView: View {
                 }
                 .fullScreenCover(isPresented: $gotoCart){
                     //ViewCart()
-                    CartView(viewModel: CartViewModel())
+                    CartView(cartViewModel:cartViewModel)
                 }
             }
         }
@@ -88,5 +94,5 @@ struct ProductListView: View {
 }
 
 #Preview {
-    ProductListView(categoryCode: "categoryCode")
+    ProductListView(categoryCode: "categoryCode",cartViewModel:CartViewModel())
 }

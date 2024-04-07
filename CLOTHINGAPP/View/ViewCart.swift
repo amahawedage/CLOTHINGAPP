@@ -94,12 +94,12 @@ struct ViewCart: View {
         
         // Navifgate the page to Checkout
         .fullScreenCover(isPresented: $gotoCheckoutView){
-            CheckoutView()
+            //CheckoutView()
         }
         
         // Navigate the page to Shop By Category
         .fullScreenCover(isPresented: $gotoContinueShopping){
-            CategoryMView()
+            //CategoryMView()
         }
     }
 }

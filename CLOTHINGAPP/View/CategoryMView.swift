@@ -10,11 +10,11 @@ import SwiftUI
 struct CategoryMView: View {
     
     @ObservedObject var viewModel = CategoryMViewModel()
-    
+    @ObservedObject var cartViewModel : CartViewModel;
     var body: some View {
         NavigationView {
             List(viewModel.categories) { categoryM in
-                NavigationLink(destination: ProductListView(categoryCode: categoryM.code)) {
+                NavigationLink(destination: ProductListView(categoryCode: categoryM.code,cartViewModel:cartViewModel)) {
                 //NavigationLink(destination: ProductListView()) {
                     CategoryMRow(category: categoryM)
                 }
@@ -52,6 +52,7 @@ struct CategoryMRow: View {
     }
 }
 
-#Preview {
-    CategoryMView()
+/*#Preview {
+    CategoryMView(cartViewModel: <#T##CartViewModel#>)
 }
+*/

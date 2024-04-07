@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var cartViewModel = CartViewModel();
         var body: some View {
                 NavigationView {
                     VStack(alignment:.center, spacing: 0) {
@@ -27,7 +28,7 @@ struct HomeView: View {
                         
                         // Navigate to Shop by category view
                         //NavigationLink(destination: DestinationView(data: "View Items by Category !")) {
-                        NavigationLink(destination: CategoryMView()) {
+                        NavigationLink(destination: CategoryMView(cartViewModel:cartViewModel)) {
                         
                             Text(" Shop By Category ")
                                 .frame(width:294, height:70, alignment:.center)

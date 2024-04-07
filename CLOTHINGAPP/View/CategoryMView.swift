@@ -12,7 +12,6 @@ struct CategoryMView: View {
     @ObservedObject var viewModel = CategoryMViewModel()
     
     var body: some View {
-        
         NavigationView {
             List(viewModel.categories) { categoryM in
                 NavigationLink(destination: ProductListView(categoryCode: categoryM.code)) {
